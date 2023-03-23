@@ -21,8 +21,19 @@ class Solution:
         #     if curr > maxonright:
         #         maxonright = curr
         # return arr
-            
+        pass
+    def kidsWithCandies(self, candies: list[int], extraCandies: int) -> list[bool]:
+        #TC O(N)
+        maxcandies = max(candies)
+        res = []
+        for i in candies:
+            if i +extraCandies >= maxcandies:
+               res.append(True)
+            else:
+                res.append(False)  
+        print(res)
         
 
 mysol = Solution()
-print(mysol.replaceElements(arr = [17,18,5,4,6,1]))
+mysol.replaceElements(arr = [17,18,5,4,6,1])
+mysol.kidsWithCandies(candies = [4,2,1,1,2], extraCandies = 1)
