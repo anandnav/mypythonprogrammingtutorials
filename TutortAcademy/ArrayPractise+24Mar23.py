@@ -7,7 +7,7 @@ class Solution:
         for i in range(0,len(pref)):
             res.append(minres^pref[i])
             minres = pref[i]  
-        print(res)
+        return res
         
 mysol = Solution()
 mysol.findArray(pref = [5,2,0,3,1])
