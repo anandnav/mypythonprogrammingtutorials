@@ -31,9 +31,16 @@ class Solution:
                res.append(True)
             else:
                 res.append(False)  
-        print(res)
-        
+        return res
+    
+    def buildArray(self, nums: list[int]) -> list[int]:
+        #TC O(N)
+        ans = []
+        for i in range(len(nums)):
+            ans.append(nums[nums[i]])
+        print(ans)
 
 mysol = Solution()
 mysol.replaceElements(arr = [17,18,5,4,6,1])
 mysol.kidsWithCandies(candies = [4,2,1,1,2], extraCandies = 1)
+mysol.buildArray(nums = [0,2,1,5,3,4])
