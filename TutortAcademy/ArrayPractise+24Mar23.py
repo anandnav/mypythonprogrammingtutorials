@@ -52,38 +52,48 @@ class Solution:
         #         res.append(i)
         # return res
         # Morrey's Voting Algorithm for TC O(n) and SC O(1)
-        num1,num2 = None,None
-        count1,count2=0,0
-        for num in nums:
-            if num == num1:
-                count1 +=1
-            elif num == num2:
-                count2 += 1
-            elif count1 == 0:
-                num1 = num
-                count1 = 1
-            elif count2 == 0:
-                num2 = num
-                count2 = 1
-            else:
-                count1 -=1
-                count2 -= 1
+        # num1,num2 = None,None
+        # count1,count2=0,0
+        # for num in nums:
+        #     if num == num1:
+        #         count1 +=1
+        #     elif num == num2:
+        #         count2 += 1
+        #     elif count1 == 0:
+        #         num1 = num
+        #         count1 = 1
+        #     elif count2 == 0:
+        #         num2 = num
+        #         count2 = 1
+        #     else:
+        #         count1 -=1
+        #         count2 -= 1
         
-        count1,count2 = 0,0
-        for num in nums:
-            if num == num1:
-                count1 += 1
-            elif num == num2:
-                count2 += 1
+        # count1,count2 = 0,0
+        # for num in nums:
+        #     if num == num1:
+        #         count1 += 1
+        #     elif num == num2:
+        #         count2 += 1
         
-        n = len(nums)
-        res = []
-        if count1 > n//3:
-            res.append(num1)
-        if count2 > n//3:
-            res.append(num2)
-        return res    
+        # n = len(nums)
+        # res = []
+        # if count1 > n//3:
+        #     res.append(num1)
+        # if count2 > n//3:
+        #     res.append(num2)
+        # return res
+        pass
+      
+    def singleNumber(self, nums: list[int]) -> int:
+        ones= 0
+        twos= 0
+        for num in nums:
+            ones = (ones ^ num) & ~twos
+            twos = (twos ^ num) & ~ones
+        return ones
         
 mysol = Solution()
 #mysol.findArray(pref = [5,2,0,3,1])
-print(mysol.majorityElement(nums = [2,2,1,1,5,6,5,5]))
+#print(mysol.majorityElement(nums = [2,2,1,1,5,6,5,5]))
+print(mysol.singleNumber(nums = [0,1,0,1,0,1,99]))
